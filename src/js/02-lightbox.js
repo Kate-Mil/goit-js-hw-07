@@ -10,24 +10,11 @@ const markupGallery = galleryItems.map(({preview,original,description}) =>
 
 galleryContainer.innerHTML = markupGallery;
 
-galleryContainer.addEventListener('click', onClickPictiresChange);
 
-function onClickPictiresChange (evt){
-    preventDefaultAction(evt);
-
-    if (evt.target.nodeName !== 'IMG'){
-        return;
-    };
-
-    const lightbox = new SimpleLightbox('.gallery__item', {
-        captions: true, // увімкнути підписи
-        captionDelay: 250, // затримка відображення підпису (мс)
-        captionsData: 'alt', // використовувати дані з атрибута alt для підпису
-        captionPosition: 'bottom' // розташування підпису
-      });
-}
-
-function preventDefaultAction(evt) {
-    evt.preventDefault();
-}
+const lightbox = new SimpleLightbox('.gallery__item', {
+    captions: true, // увімкнути підписи
+    captionDelay: 250, // затримка відображення підпису (мс)
+    captionsData: 'alt', // використовувати дані з атрибута alt для підпису
+    captionPosition: 'bottom' // розташування підпису
+});
 
